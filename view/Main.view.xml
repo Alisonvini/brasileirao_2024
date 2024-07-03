@@ -1,0 +1,136 @@
+<mvc:View controllerName="campbrasileiro.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <ObjectHeader 
+            title="{ModeloDadosGerais>/nome_popular}"
+            number="{ModeloDadosGerais>/rodada_atual/rodada}"
+            numberUnit="Rodada">
+            
+        </ObjectHeader>
+
+        <IconTabBar>
+            <items>
+                <IconTabFilter 
+                    text="Classificação" 
+                    key="classificacao"
+                    icon="sap-icon://competitor">
+
+                    <Table items="{ModeloClassificacao>/Classificacao}">
+                        <columns>
+                            <Column >
+                                <Text text="Posição"></Text>
+                            </Column>
+                            <Column >
+                                <Text text=""></Text>
+                            </Column>
+                            <Column >
+                                <Text text="Time"></Text>
+                            </Column>
+                            <Column >
+                                <Text text="Pts"></Text>
+                            </Column>
+                            <Column >
+                                <Text text="PJ"></Text>
+                            </Column>
+                            <Column >
+                                <Text text="VIT"></Text>
+                            </Column>
+                            <Column >
+                                <Text text="E"></Text>
+                            </Column>
+                            <Column >
+                                <Text text="DER"></Text>
+                            </Column>
+                              <Column >
+                                <Text text="GM"></Text>
+                            </Column>
+                            <Column >
+                                <Text text="GC"></Text>
+                            </Column>
+                            <Column >
+                                <Text text="SG"></Text>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem >
+                                <cells>
+                                    <!-- 1a coluna posicao -->
+                                    <Text text="{ModeloClassificacao>posicao}"></Text>
+                                    <!--2a coluna escudo-->
+                                    <Image src="{ModeloClassificacao>time/escudo}" width="50%"></Image>
+                                    <!-- 2a coluna time-->
+                                    <Text text="{ModeloClassificacao>time/nome_popular}"></Text>
+                                    <!-- 3a coluna pontos-->
+                                    <Text text="{ModeloClassificacao>pontos}"></Text>
+                                    <!-- 4a coluna jogos -->
+                                    <Text text="{ModeloClassificacao>jogos}"></Text>
+                                    <!-- 5a coluna vitorias -->
+                                    <Text text="{ModeloClassificacao>vitorias}"></Text>
+                                    <!-- 6a coluna empates -->
+                                    <Text text="{ModeloClassificacao>empates}"></Text>
+                                    <!-- 7a coluna derrotas -->
+                                    <Text text="{ModeloClassificacao>derrotas}"></Text>
+                                    <!-- 8a coluna GM -->
+                                    <Text text="{ModeloClassificacao>gols_pro}"></Text>
+                                    <!-- 91a coluna GC -->
+                                    <Text text="{ModeloClassificacao>gols_contra}"></Text>
+                                    <!-- 10a coluna SG-->
+                                    <Text text="{ModeloClassificacao>saldo_gols}"></Text>
+                                </cells>
+                            
+                            </ColumnListItem>
+
+                        </items>
+                    </Table>
+
+                </IconTabFilter>
+
+                <IconTabFilter 
+                    text="Partidas" 
+                    key="partidas"
+                    icon="sap-icon://soccer">
+
+                    <Table id="partidasTable" headerText="12ª Rodada" items="{ModeloPartidas>/partidas}">
+                        <columns>
+                            <Column hAlign="Right">
+                                <Text ></Text>
+                            </Column>
+                            <Column hAlign="Center">
+                                <Text text="Resultados" ></Text>
+                            </Column>
+                            <Column hAlign="Left">
+                                <Text ></Text>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                    <cells >
+                                        <!-- 1a coluna posicao -->
+                                        <Image src="{ModeloPartidas>time_mandante/escudo}" width="10%" ></Image>
+                                        <!--2a coluna escudo-->
+                                        <VBox >
+                                            <Text text="{ModeloPartidas>placar}"></Text>
+                                            <Text text="{ModeloPartidas>data_realizacao} {ModeloPartidas>hora_realizacao}"></Text>
+                                            <Text text="{ModeloPartidas>status}"></Text>
+                                        </VBox>
+                                        
+                                        <!-- 2a coluna time-->
+                                        <Image src="{ModeloPartidas>time_visitante/escudo}" width="10%"></Image>
+    
+                                    </cells>
+                                        
+                                
+                            </ColumnListItem>
+                        
+                        </items>
+                    </Table >
+
+                   
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+    </Page>
+</mvc:View>
